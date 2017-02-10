@@ -20,6 +20,7 @@ git clone https://github.com/BiYuqi/SimpleCheck.git
 *@isBlankText   //为空时提示文本
 */
 传参是个数组对象
+举个例子:
 ex:var ooo = [
                 {
                     target:'.user-name',//目标元素
@@ -49,7 +50,7 @@ ex:var ooo = [
 //写规则
 var ooo = [
             {
-                target:'.user-name',//目标元素
+                target:'.user-name',//目标元素 id class皆可
                 reg:/[a-zA-Z_]{6,}/,//校验规则
                 tips:'.tips',//提示框元素
                 tipsText:'此处只能是字母下划线(字母不计大小写)',//正则对应的提示文字
@@ -61,7 +62,7 @@ var ooo = [
                 reg:/[\w]{6,16}/,
                 tips:'.tips',
                 tipsText:'字母数字下划线,6~16位',
-                isBlank:true,//可以为空
+                isBlank:true,//不可以为空
                 isBlankText:'输入不能为空'
             },
             {

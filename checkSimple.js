@@ -18,15 +18,19 @@
         }
         each(arr,function(k,v){
             v.onblur = function(){
-                if(o[k].isBlank && o[k].isBlank == true){
-                    if(v.value <= 0){
-                        $All('.tips')[k].innerHTML = o[k].isBlankText;
+                try {
+                    if(o[k].isBlank && o[k].isBlank == true){
+                        if(v.value.length <= 0){
+                            $All('.tips')[k].innerHTML = o[k].isBlankText;
+                            return;
+                        }
+                    }
+                    if(!(o[k].reg).test(v.value)){
+                        $All('.tips')[k].innerHTML = o[k].tipsText;
                         return;
                     }
-                }
-                if(!(o[k].reg).test(v.value)){
-                    $All('.tips')[k].innerHTML = o[k].tipsText;
-                    return;
+                }catch(e){
+                    console.log(e);
                 }
             }
             v.onfocus = function(){
